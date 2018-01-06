@@ -1,0 +1,156 @@
+<html>
+<head>
+    <title>Code Formatter</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        #input                                                                                                                  {
+            font-family: Monospaced, monospace                                                                                  ;
+            width: 100%                                                                                                         ;
+            height: 60%                                                                                                         ;
+            padding: 10px                                                                                                       ;}
+
+
+        #amountExtra, #otherStuff                                                                                               {
+            width: 70%                                                                                                          ;
+            float: right                                                                                                        ;}
+
+
+        #smallerStuff                                                                                                           {
+            width: 25%                                                                                                          ;}
+
+
+        #convertButton                                                                                                          {
+            width: 25%                                                                                                          ;}
+
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="card">
+    <div class="card-body">
+        <textarea id="input" placeholder="// Code here"></textarea>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div id="smallerStuff">
+            <button type="button" class="btn btn-primary" id="convertButton" onclick="clicked();">Convert</button>
+
+            <input type="number" class="form-control" id="amountExtra" aria-describedby="otherStuff" value="0"
+                   placeholder="Extra spaces out">
+            <small id="otherStuff" class="form-text text-muted">This should be the amount of extra spaces to move all
+                the extra stuff to.
+            </small>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function clicked()                                                                                                          {
+        let input = document.getElementById("input").value.split("\n")                                                          ;
+        console.log(input)                                                                                                      ;
+
+        let distanceOut = 0                                                                                                     ;
+
+        for (let i = 0; i < input.length; i++)                                                                                  {
+            if (distanceOut < input[i].length)                                                                                  {
+                distanceOut = input[i].length                                                                                   ;}}
+
+
+
+        distanceOut += parseInt(document.getElementById("amountExtra").value)                                                   ;
+
+        let output = ""                                                                                                         ;
+        let rows = [input.length]                                                                                               ;
+
+        for (let i = 0; i < input.length; i++)                                                                                  {
+            let line = input[i]                                                                                                 ;
+            rows[i] = ""                                                                                                        ;
+
+            if (line.endsWith("{"))                                                                                             {
+                rows[i] += "{"                                                                                                  ;
+                input[i] = line.substring(0, line.lastIndexOf("{"))                                                             ;}
+              else                                                                                                              {
+                if (line.endsWith(";"))                                                                                         {
+                    rows[i] += ";"                                                                                              ;
+                    input[i] = line.substring(0, line.lastIndexOf(";"))                                                         ;}}
+
+
+
+            let val = specialStartsWith(input[i], "}")                                                                          ;
+
+            if (val.starts)                                                                                                     {
+                input[i] = repeat(" ", val.len + 1) + input[i].substring(val.len + 1, input[i].length)                          ;
+                if (input[i].trim() === "")                                                                                     {
+                    rows[i - 1] += "}"                                                                                          ;}
+                  else                                                                                                          {
+                    rows[i - 1] += "}"                                                                                          ;}}}
+
+
+
+
+        for (let i = input.length - 1; i >= 0; i--)                                                                             {
+            if (input[i].trim() === "")                                                                                         {
+                rows[i - 1] += rows[i]                                                                                          ;
+                rows[i] = ""                                                                                                    ;}}
+
+
+
+
+        function repeat(string, amount)                                                                                         {
+            let ret = ""                                                                                                        ;
+
+            for (let i = 0; i < amount; i++)                                                                                    {
+                ret += string                                                                                                   ;}
+
+
+            return ret                                                                                                          ;}
+
+
+        function specialStartsWith(line, character)                                                                             {
+            let ret = {}                                                                                                        ;
+
+            for (let i = 0; i < line.length; i++)                                                                               {
+                if (line.charAt(i) === character)                                                                               {
+                    ret.starts = true                                                                                           ;
+                    ret.len = i                                                                                                 ;
+                    return ret                                                                                                  ;}
+
+
+                if (line.charAt(i) !== " ")                                                                                     {
+                    ret.starts = false                                                                                          ;
+                    return ret                                                                                                  ;}}
+
+
+
+            ret.starts = false                                                                                                  ;
+            return ret                                                                                                          ;}
+
+
+
+        for (let i = 0; i < input.length; i++)                                                                                  {
+            input[i] += getPadding(input[i]) + rows[i]                                                                          ;}
+
+
+
+        for (let i = 0; i < input.length; i++)                                                                                  {
+            output += input[i] + "\n"                                                                                           ;}
+
+
+
+        document.getElementById("input").value = output                                                                         ;
+
+        function getPadding(line)                                                                                               {
+            return repeat(" ", distanceOut - line.length)                                                                       ;}}
+
+
+</script>
+</body>
+</html>
