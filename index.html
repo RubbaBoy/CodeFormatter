@@ -54,8 +54,7 @@
 <script>
 
     function clicked()                                                                                                          {
-        let input = document.getElementById("input").value.split("\n")                                                          ;
-        console.log(input)                                                                                                      ;
+        let input = document.getElementById("input").value.replace(/\t/g,"   ").split("\n")                                     ;
 
         let distanceOut = 0                                                                                                     ;
 
