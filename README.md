@@ -25,4 +25,5 @@ Here is an example with an adjusted 25 extra spaces:
 
 # A real-life demo
 This is a real demo of formatting a fork of the repository [SimpleNet](https://github.com/jhg023/SimpleNet)
-![](https://rubbaboy.me/images/au62bz6.gif)
+
+[(Here's a link because GitHub doesn't like long gifs)](https://rubbaboy.me/images/au62bz6.gif)
