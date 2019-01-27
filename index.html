@@ -1,49 +1,49 @@
-<html>                                                                                                                                                                                                
-<head>                                                                                                                                                                                                
-    <title>Code Formatter</title>                                                                                                                                                                     
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">                                                                                                            
-    <style>                                                                                                                                                                                           
-        #input                                                                                                                                                                                        {
-            font-family: Monospaced, monospace                                                                                                                                                        ;
-            width: 100%                                                                                                                                                                               ;
-            height: 60%                                                                                                                                                                               ;
-            padding: 10px                                                                                                                                                                           ;}
-        #amountExtra, #otherStuff                                                                                                                                                                     {
-            width: 70%                                                                                                                                                                                ;
-            float: right                                                                                                                                                                            ;}
-        #smallerStuff                                                                                                                                                                                 {
-            width: 25%                                                                                                                                                                              ;}
-        #convertButton                                                                                                                                                                                {
-            width: 25%                                                                                                                                                                              ;}
-    </style>                                                                                                                                                                                          
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"                                                                                        
-          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">                                                                                
-</head>                                                                                                                                                                                               
-<body>                                                                                                                                                                                                
-<div class="card">                                                                                                                                                                                    
-    <div class="card-body">                                                                                                                                                                           
-        <textarea id="input" placeholder="// Code here"></textarea>                                                                                                                                   
-    </div>                                                                                                                                                                                            
-</div>                                                                                                                                                                                                
-<div class="card">                                                                                                                                                                                    
-    <div class="card-body">                                                                                                                                                                           
-        <div id="smallerStuff">                                                                                                                                                                       
-            <button type="button" class="btn btn-primary" id="convertButton"                                                                                                                          
-                    onclick="document.getElementById('input').value = module.exports.format_logic(document.getElementById('input').value, parseInt(document.getElementById('amountExtra').value));">  
-                Convert                                                                                                                                                                               
-            </button>                                                                                                                                                                                 
-            <input type="number" class="form-control" id="amountExtra" aria-describedby="otherStuff" value="0"                                                                                        
-                   placeholder="Extra spaces out">                                                                                                                                                    
-            <small id="otherStuff" class="form-text text-muted">This should be the amount of extra spaces to move all                                                                                 
-                the extra stuff to.                                                                                                                                                                   
-            </small>                                                                                                                                                                                  
-        </div>                                                                                                                                                                                        
-    </div>                                                                                                                                                                                            
-</div>                                                                                                                                                                                                
-<script>                                                                                                                                                                                              
-    // This is to keep compatibility with both node and client-size JS                                                                                                                                
-    var module = {exports: {}}                                                                                                                                                                        ;
-</script>                                                                                                                                                                                             
-<script src="format_logic.js"></script>                                                                                                                                                               
-</body>                                                                                                                                                                                               
-</html>                                                                                                                                                                                               
+<html>                                                                                                                                                                                                 
+<head>                                                                                                                                                                                                 
+    <title>Code Formatter</title>                                                                                                                                                                      
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">                                                                                                             
+    <style>                                                                                                                                                                                            
+        #input                                                                                                                                                                                         {
+            font-family: Monospaced, monospace                                                                                                                                                         ;
+            width: 100%                                                                                                                                                                                ;
+            height: 60%                                                                                                                                                                                ;
+            padding: 10px                                                                                                                                                                           ;} 
+        #amountExtra, #otherStuff                                                                                                                                                                      {
+            width: 70%                                                                                                                                                                                 ;
+            float: right                                                                                                                                                                            ;} 
+        #smallerStuff                                                                                                                                                                                  {
+            width: 25%                                                                                                                                                                              ;} 
+        #convertButton                                                                                                                                                                                 {
+            width: 25%                                                                                                                                                                              ;} 
+    </style>                                                                                                                                                                                           
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"                                                                                         
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">                                                                                 
+</head>                                                                                                                                                                                                
+<body>                                                                                                                                                                                                 
+<div class="card">                                                                                                                                                                                     
+    <div class="card-body">                                                                                                                                                                            
+        <textarea id="input" placeholder="// Code here"></textarea>                                                                                                                                    
+    </div>                                                                                                                                                                                             
+</div>                                                                                                                                                                                                 
+<div class="card">                                                                                                                                                                                     
+    <div class="card-body">                                                                                                                                                                            
+        <div id="smallerStuff">                                                                                                                                                                        
+            <button type="button" class="btn btn-primary" id="convertButton"                                                                                                                           
+                    onclick="document.getElementById('input').value = module.exports.format_logic(document.getElementById('input').value, parseInt(document.getElementById('amountExtra').value));">   
+                Convert                                                                                                                                                                                
+            </button>                                                                                                                                                                                  
+            <input type="number" class="form-control" id="amountExtra" aria-describedby="otherStuff" value="0"                                                                                         
+                   placeholder="Extra spaces out">                                                                                                                                                     
+            <small id="otherStuff" class="form-text text-muted">This should be the amount of extra spaces to move all                                                                                  
+                the extra stuff to.                                                                                                                                                                    
+            </small>                                                                                                                                                                                   
+        </div>                                                                                                                                                                                         
+    </div>                                                                                                                                                                                             
+</div>                                                                                                                                                                                                 
+<script>                                                                                                                                                                                               
+    // This is to keep compatibility with both node and client-size JS                                                                                                                                 
+    var module = {exports: {}}                                                                                                                                                                         ;
+</script>                                                                                                                                                                                              
+<script src="format_logic.js"></script>                                                                                                                                                                
+</body>                                                                                                                                                                                                
+</html>                                                                                                                                                                                                
