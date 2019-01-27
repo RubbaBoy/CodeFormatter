@@ -1,0 +1,7 @@
+{  "name": "codeformatter",
+  "version": "0.0.0",
+  "private": true,
+  "scripts":               {
+    "format": "node format"}
+   ,
+  "dependencies": {}       }
