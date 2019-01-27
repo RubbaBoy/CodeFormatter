@@ -22,3 +22,7 @@ Code after:
 ![](https://rubbaboy.me/images/hlld2ie)                                                                                                                                                                                                                                 
 Here is an example with an adjusted 25 extra spaces:                                                                                                                                                                                                                    
 ![](https://rubbaboy.me/images/m760pad)                                                                                                                                                                                                                                 
+
+# A real-life demo
+This is a real demo of formatting a fork of the repository [SimpleNet](https://github.com/jhg023/SimpleNet)
+![](https://rubbaboy.me/images/au62bz6.gif)
